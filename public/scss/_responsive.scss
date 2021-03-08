@@ -1,0 +1,332 @@
+@media screen and (max-width: 1350px) {
+	a.button { font-size: 0.9em; }
+
+  .margin-container {
+    $padding: 6.5em;
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+	header {
+    > div { height: 6em; }
+  }
+
+  .search-area label input { width: 18em; }
+
+	nav {
+		ul > li a { padding: 0.75em 1em; }
+	}
+
+  main { background-image: url("../images/medium/bg-green-md.png"); }
+
+	section.banner {
+		height: 30em;
+    background-image: url("../images/medium/banner-md.jpg");
+		h1 { font-size: 3em; }
+	}
+
+	section.icon-group {
+		flex-wrap: wrap;
+		padding-bottom: 1.5em;
+		article {
+			width: 50%;
+			padding: 2em 2.5em 3em;
+		 }
+	}
+
+	section.quote {
+    @include vertical-pad(3em);
+		&::before {
+			top: -1.75em;
+			$quotemarksize: 4em;
+			width: $quotemarksize;
+			height: $quotemarksize;
+		}
+		blockquote { font-size: 1.4em; }
+	}
+
+	section.news {
+		flex-wrap: wrap;
+		padding-bottom: 2em;
+		article {
+			width: 100%;
+			display: block;
+			margin-bottom: 2.5em;
+			position: relative;
+			.news-image {
+				position: absolute;
+				width: 18em;
+				margin-right: 1.5em;
+			}
+			$leftmargin: 19.5rem;
+			h3, p, a { margin-left: $leftmargin; }
+			p:not(.date) { margin-left: $leftmargin; }
+		}
+	}
+
+	section.contact {
+		padding-top: 0;
+		padding-bottom: 4em;
+		p {
+			font-size: 1.5em;
+			width: 750px;
+		}
+	}
+
+  footer {
+    > div:first-child {
+			background-image: url("../images/medium/bg-blue-md.png");
+    }
+  }
+	
+	ul.footer-links {
+		> li {
+			a { font-size: 1em; }
+		}
+	}
+
+	.email-input-area {
+		width: 25em;
+		button { padding: 0 1.5em; }
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	nav {
+		ul > li a { padding: 0.75em 0.75em; }
+		ul.icon-list {
+			p { display: none; }
+      > li a span.icon { margin-right: 0; }
+		}
+	}
+
+	ul.footer-links {
+		> li { width: 100%; }
+	}
+}
+
+@media screen and (max-width: 950px) {
+	a.button { font-size: 0.8em; }
+
+  $padding: 5em;
+  .margin-container {
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+  $headerheight: 3.5em;
+	header {
+    position: sticky;
+    top: 0; 
+    z-index: 2;
+    > div {
+      position: relative;
+      height: $headerheight;
+      z-index: 1;
+      img { width: 8em; }
+    }
+  }
+
+  .menu {
+    display: flex;
+    height: 100%;
+    button {
+      height: 100%;
+      width: 4em;
+      background-repeat: no-repeat;
+      background-size: 30%;
+      background-position: center;
+      &.search {
+        background-image: url("../images/icon-search-white.png");
+        &.open {
+          background-color: $green;
+          background-image: url("../images/icon-close.png");
+        }
+      }
+      &.nav {
+        background-image: url("../images/icon-menu.png");
+        &.open {
+          background-color: $bluedarker;
+          background-image: url("../images/icon-close.png");
+        }
+      }
+    }
+  }
+
+  .search-area {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $green;
+    padding: 0.75em $padding;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s ease-out, visibility .2s ease-out;
+    &.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    label {
+      width: 100%;
+      p { display: none; }
+      input {
+        width: 100%;
+        margin-left: 0;
+        &::placeholder { visibility: visible; }
+      }
+    }
+  }
+
+  nav {
+    background-color: $bluedarker;
+    display: block;
+    position: fixed;
+    top: $headerheight;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: visibility .2s ease-out, transform .2s ease-out;
+    &.show {
+      transform: translateY(0);
+      visibility: visible;
+    }
+    ul {
+      &.pages {
+        flex-direction: column;
+        > li {
+          width: 100%;
+          &:not(:last-child) {
+            border-bottom: 0.1em solid rgba($greylight, 0.2);
+          }
+        }
+      }
+      &.icon-list {
+        display: none;
+      }
+    }
+  }
+
+  main { background-image: url("../images/small/bg-green-sm.png"); }
+
+	section.banner {
+    height: 20em;
+    background-image: url("../images/small/banner-sm.jpg");
+		h1 { font-size: 1.75em; }
+    a.button {
+      margin-top: 1.5em;
+    }
+	}
+
+  section.icon-group {
+    padding-bottom: 4em;
+    article {
+      width: 100%;
+			padding: 2em 2em 1em;
+    }
+  }
+
+  section.quote {
+    @include vertical-pad(1.5em);
+    &::before {
+      top: -1.05em;
+      $quotemarksize: 2.5em;
+      width: $quotemarksize;
+      height: $quotemarksize;
+    }
+    blockquote { font-size: 1em; }
+  }
+
+	section.news {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 1em;
+		article {
+			margin-bottom: 2.5em;
+			position: relative;
+			.news-image {
+				position: relative;
+				width: 100%;
+				margin-right: 0;
+			}
+      h3 {
+        font-size: 1.3em;
+        margin-top: 0.75em;
+      }
+      p { font-size: 0.8em; }
+      p.date { margin-top: 0.5em; }
+			p:not(.date) {
+        margin-left: 0;
+        font-size: 1em;
+      }
+			h3, p, a { margin-left: 0; }
+		}
+	}
+
+  section.contact {
+    padding-bottom: 2em;
+    p {
+      font-size: 1.2em;
+      width: 100%;
+    }
+  }
+
+  footer {
+    > div {
+      &:first-child {
+        background-image: url("../images/small/bg-blue-sm.png");
+        background-size: 150%;
+			  padding-bottom: 4em;
+        grid-template-areas:
+          "links social"
+          "subscribe subscribe";
+      }
+      &:last-child {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        position: relative;
+        button {
+          order: 1;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: -2em;
+        }
+        p { order: 2; }
+        a { order: 3; }
+      }
+    }
+  }
+
+  .footer-social {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    grid-area: social;
+    .icon-social {
+      width: 3.5em;
+      margin: 0.4em 0; 
+    }
+  }
+
+	.email-input-area {
+		width: 100%;
+    input { min-width: 0; }
+	}
+}
+
+@media screen and (max-width: 500px) {
+  $padding: 1.5em;
+  .margin-container {
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+  .search-area { padding: 0.75em $padding; }
+}
